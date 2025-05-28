@@ -22,31 +22,16 @@ def get_unsorted_list_of_dict(input_dict):
 
     return unsorted_list
 
-def sort_on_num(dict):
-    return dict["num"]
-
-
-
 def get_sorted_list_of_dict(input_list):
-    sorted_list = []
+    def sort_on_num(dict):
+        return dict["num"]
 
-    sorted_list = sorted(input_list, key=sort_on_num)        
+    # this solution uses the key function i wrote (sort_on_num)
+    sorted_list = sorted(input_list, key=sort_on_num, reverse=True)
+
+    # this solution uses a `lambda` function.
+    # lambda functions let you supply an annonymous function inline
+    # in this case, `dict: dict["num"]` which is analogous to `sort_on_num`
+    sorted_list = sorted(input_list, key=lambda dict: dict["num"], reverse=True)
 
     return sorted_list
-
-
-
-
-# def get_sorted_dictionary(dict):
-#     sorted_dict = {}
-#     sorted_dict = sorted(dict.items(), key=lambda item: item[1], reverse=True)
-
-#     return sorted_dict
-
-# def get_sorted_dictionaries(dict):
-#     report_dict = {}
-
-#     for key, value in dict:
-#         report_dict = { "char": key, "num": value }
-
-#     return report_dict
